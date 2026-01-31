@@ -7,20 +7,18 @@ export default function App() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // ⚠️ PUT YOUR EMAIL HERE ⚠️
-  const YOUR_EMAIL = 'tom.man09@icloud.com';
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !message.trim()) return;
     setSubmitting(true);
     setError(null);
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${YOUR_EMAIL}`, {
+      const response = await fetch('https://formsubmit.co/ajax/tom.man09@icloud.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           _subject: `🎂 Birthday Message for Tony from ${name.trim()}!`,
+          _cc: 'julieallington@hotmail.com,karen.collins29@btinternet.com',
           name: name.trim(),
           message: message.trim(),
         })
